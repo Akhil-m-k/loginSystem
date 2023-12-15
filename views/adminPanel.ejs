@@ -1,0 +1,39 @@
+<%- include("./partials/adminHeader.ejs") -%>
+</ul>
+</nav>
+</div>
+</div>
+<div class="table_container">
+    <form id="searchForm" action="/api/search" method="post">
+        <label for="email">Search by Username:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email">
+        <button type="submit">Search</button>
+    </form>
+    <table id="userTable">
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>profile</th>
+            <th>Edit</th>
+            <th>delete</th>
+        </tr>
+        <% users.forEach((user)=>{ %>
+            <tr>
+                <td><%= user.username %></td>
+                <td><%= user.password %></td>
+                <td><%= user.email %></td>
+                <td><img src="/<%= user.avatar %>" alt="" width="50px" height="50px" style="border-radius: 50%;"></td>
+                <td><a href="/api/userEdit/<%= user._id %>" class="edit_btn"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                <td><a href="/api/adminPanel" onclick="deleteUser('<%= user._id %>')" class="delete_btn"><i class="fa fa-solid fa-trash-can"></i></a></td>
+            </tr>
+        <% }) %>
+    </table>
+</div>
+<script src="/scripts/userEdit.js"></script>
+<script>
+// userEdit.js
+
+
+</script>
+<%- include("./partials/footer.ejs") -%>

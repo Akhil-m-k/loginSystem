@@ -1,0 +1,18 @@
+.table_container{
+    display: grid;
+    place-items: center;
+    min-height: 804px;
+    background-color: #fff;
+}
+table{
+    background-color: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.862);
+}
+table,th,td{
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+th,td{
+    height: 50px;
+    padding: 0px 20px;
+}

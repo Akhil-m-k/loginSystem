@@ -1,0 +1,53 @@
+<%- include(locals.header) -%>
+    <% if(locals.header === "./partials/userHeader.ejs"){ %>
+    <li class="nav_item"><img src="/<%= user.avatar %>" class="profile" alt=""></li>
+    <li class="nav_item" class="profile_nav_item">
+      <div class="dropdown">
+        <button class="btn_name">
+          <span><%= name %></span>&nbsp;
+          <i class="fa-solid fa-angle-down down_arrow"></i>
+          <i class="fa-solid fa-angle-up up_arrow"></i>
+        </button>
+          <div class="dropdown_content">
+            <a href="/userProfile/<%= user._id %>">view profile</a>
+            <a href="/editProfile/<%= user._id %>">edit profile</a>
+            <a href="/logout">Log Out</a>
+          </div>
+      </div>
+    </li>
+   
+    <% }else{ %>
+        <li class="nav_item"><a href="/api/adminPanel">users</a></li>
+        <li class="nav_item"><a href=""><i class="fa-solid fa-right-from-bracket "></i></a></li>
+    <% } %>
+
+     </ul>
+   </nav>
+  </div>
+</div>
+
+<div class="home_page">
+    <h1>Our courses</h1>
+    <div class="row">
+        <div class="col">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis neque autem velit sint minus quis, accusamus quos veritatis iusto aliquid.</p>
+        </div>
+        <div class="col">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae eligendi culpa quis, odio placeat ea id ducimus minima quos?</p>
+        </div>
+        <div class="col">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem numquam cumque omnis at eos repellendus. Non molestias autem modi tempore?</p>
+        </div>
+        <div class="col">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, fuga? Voluptatum, incidunt! Aperiam velit veritatis sit facilis, vitae saepe inventore!</p>
+        </div>
+        <div class="col">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto exercitationem ipsam nemo totam vel magni commodi soluta mollitia consectetur distinctio.</p>
+        </div>
+        <div class="col">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam rerum eos tenetur voluptate autem dolorum repudiandae deserunt obcaecati neque provident.
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer.ejs') -%>

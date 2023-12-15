@@ -1,0 +1,28 @@
+<%- include('./partials/adminHeader.ejs') %>
+</ul>
+</nav>
+</div>
+</div>
+    <!-- login form -->
+    <section class="login_section">
+        <div class="intro_message">
+            <h1>Welcome to Gurkulam College Of Engineering</h1>
+            <h3>Worlds number one Engineering college</h3>
+        </div>
+        <div class="login_form">
+            <div class="form_container">
+                <h1 class="form_heading">Login</h1>
+                <form action="/api/admlogin" class="login_form" method="post">
+                    <label for="username">Username</label><br>
+                    <input type="text" placeholder="Enter the username" name="username" id="username"><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" name="password" id="password" placeholder="Enter your password"><br>
+                    <div class="other_options">
+                        <a href="">forgot password?</a>
+                    </div>
+                    <div class="btn_div"><button type="submit">Log in</button></div>
+                </form>
+            </div>
+        </div>
+    </section>
+<%- include('./partials/footer.ejs') %>

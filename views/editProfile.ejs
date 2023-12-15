@@ -1,0 +1,67 @@
+<%- include('./partials/userHeader.ejs') -%>
+</ul>
+</nav>
+</div>
+</div>
+    <!-- login form -->
+    <section class="editProfile">
+        <div class="edit_form">
+          <div class="editForm_container">
+            <form  class="login_form">
+            <div class="flex">
+                <div class="profile_pic">
+                    <label for="file" class="img_label"><i class="fa fa-thin fa-camera"></i></label>
+                    <input  type='file' id="file" class="edit_file" name="avatar" value="<%= user.avatar %>" />
+                    <img id="profile_img" src="/<%= user.avatar %>"/>
+                </div>
+                <div>
+                    <h1><%= user.username %></h1>
+                </div>
+            </div>
+            <div class="form_inputs">
+                <div>
+                    <label for="username">Username</label><br />
+                    <input
+                        type="text"
+                        placeholder="Enter the username"
+                        name="username"
+                        id="username"
+                        value="<%= user.username %>"
+                    />
+                </div>
+                  <div>
+                    <label for="email">Email</label><br />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    value="<%= user.email %>"
+                  />
+                  </div>
+                  <div>
+                    <label for="password">Password</label><br />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    value="<%= user.password %>"
+                  />
+                  </div><br>
+                  <div><button type="button" class="edit_btn" onclick="editProfile('<%= user._id %>');">update</button></div>
+            </div>
+            </form>
+          </div>
+        </div>
+    </section>
+<script>
+ file.onchange = evt => {
+  const [file1] = file.files
+  if (file1) {
+    profile_img.src = URL.createObjectURL(file1)
+  }
+}
+</script>
+<script src="/scripts/userEdit.js"></script>
+  <%- include('./partials/footer.ejs') -%>

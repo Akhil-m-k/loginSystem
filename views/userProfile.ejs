@@ -1,0 +1,28 @@
+<%- include(locals.header) -%>
+<% if(locals.header === "./partials/userHeader.ejs"){ %>
+    <li class="nav_item"><a href=""><i class="fa-solid fa-right-from-bracket "></i></a></li>
+<% } %>
+</ul>
+</nav>
+</div>
+</div>
+
+<div class="table_container">
+    <table>
+        <tr>
+            <td rowspan="3"><img src="/<%= user.avatar %>" style="object-fit: cover; width: 250px" alt="" ></td>
+            <th>Username</th>
+            <td><%= user.username %></td>
+        </tr>
+        <tr>
+            <th>password</th>
+            <td><%= user.password %></td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td><%= user.email %></td>
+        </tr>
+    </table>
+</div>
+
+<%- include('./partials/footer.ejs') -%>
