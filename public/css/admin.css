@@ -1,7 +1,8 @@
 .table_container{
-    padding-top: 100px;
+    padding-top: 50px;
     min-height: 804px;
     background-color: #fff;
+    padding-bottom: 50px;
 }
 .SearchForm_container{
     width: 80%;

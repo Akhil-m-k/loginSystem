@@ -16,7 +16,11 @@ const passwordSet = async (_, res) => {
 
 /// admin login get request
 const admLogin = (req, res) => {
-  res.render("adminLogin");
+  if(!req.session.admin){
+    res.render("adminLogin");
+  }else{
+    res.redirect('/api/home');
+  }
 };
 
 //// admin login post request

@@ -45,7 +45,7 @@ body::after {
   z-index: 3;
 }
 
-.login_form {
+.login_form,.signUp_form {
   width: 100%;
 }
 .form_heading {
@@ -109,7 +109,7 @@ body::after {
 .d-none{
   display: none;
 }
-.form_container p{
+.form_container .signUp_form p{
   color: red;
   margin-top: -15px;
   margin-bottom: 10px;
@@ -118,6 +118,6 @@ body::after {
   border: 2px solid red !important;
 }
 
-#username{
+.signUp_form #username{
   text-transform: uppercase;
 }

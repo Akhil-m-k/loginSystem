@@ -5,7 +5,7 @@ const login = (req, res) => {
   if (!req.session.user) {
     res.render("login");
   } else {
-    res.redirect("/home");
+    res.redirect(`/home/${req.session.user._id}`);
   }
 };
 
@@ -16,7 +16,8 @@ const login_post = async (req, res) => {
     password: req.body.password
   });
   try {
-    if (user !== null) {
+    if (user) {
+     req.session.user=user;
      const userId =user._id;
       res.redirect(`/home/${userId}`);
     }
@@ -26,8 +27,12 @@ const login_post = async (req, res) => {
 };
 
 //// signUp page route controller
-const signUP = (req, res) => {
-  res.render("signUp");
+const signUP = (req,res) => {
+  if(!req.session.user){
+    res.render("signUp");
+  }else{
+    res.redirect(`/home/${req.session.user._id}`);
+  }
 };
 
 ////signUp form post route controller
@@ -48,15 +53,15 @@ const signUP_post = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error:"Internal Server Error"});
   }
 };
 
 //// home page route controller
 const homepage = async (req, res) => {
   const user=await User.findOne({_id:req.params.id});
-  if (user) {
-    res.render("home", {
+  if (user && req.session.user) {
+    res.render("home",{
       header: "./partials/userHeader.ejs",
       name: user.username,
       user: user,
@@ -90,7 +95,6 @@ const editProfile =async (req, res) => {
 };
 
 //// edit profile put
-
 const editProfile_put = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -118,5 +122,4 @@ module.exports = {
   logOut,
   editProfile,
   editProfile_put,
-
 };
