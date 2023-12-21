@@ -13,6 +13,7 @@
         <div class="form_container">
           <h1 class="form_heading">Sign Up</h1>
           <form action="/signUp" class="signUp_form" method="post" enctype="multipart/form-data">
+            <h5><%= locals.errorMsg %></h5>
             <label for="username">Username</label><br />
             <input
               type="text"
@@ -52,6 +53,7 @@
             <label for="avatar">photo</label>
             <input type="file" id="avatar" class="file" name="avatar">
             <p id="avatar"></p>
+            <span style="color: blue;">Existing user? <a href="/">Login</a></span>
             <div class="btn_div"><button type="submit" onclick="return validate();">Sign Up</button></div>
           </form>
         </div>

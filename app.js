@@ -26,7 +26,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'))); //// public file
 app.use('/',express.static(path.join(__dirname, 'uploads')));
 
-
 /// using nocache
 app.use(nocache());
 

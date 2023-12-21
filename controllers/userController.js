@@ -28,7 +28,10 @@ const login_post = async (req, res) => {
 
 //// signUp page route controller
 const signUP = (req,res) => {
-  if(!req.session.user){
+  if(!req.session.user && req.session.checkEmail){
+    req.session.destroy();
+    res.render('signUp',{errorMsg:"user with this mail already exists"});
+  }else if(!req.session.user){
     res.render("signUp");
   }else{
     res.redirect(`/home/${req.session.user._id}`);
@@ -38,8 +41,8 @@ const signUP = (req,res) => {
 ////signUp form post route controller
 const signUP_post = async (req, res) => {
   try {
-    const check = await User.findOne({ email: req.body.email });
-    if (!check) {
+    req.session.checkEmail = await User.findOne({ email: req.body.email });
+    if (!req.session.checkEmail) {
       const user = new User(req.body);
       if (req.file) {
         user.avatar = req.file.filename;
@@ -47,9 +50,7 @@ const signUP_post = async (req, res) => {
       await user.save();
       res.redirect("/");
     } else {
-      res
-        .status(400)
-        .json({ error: "User with the provided email already exists" });
+      res.redirect('/signUp');
     }
   } catch (error) {
     console.log(error);

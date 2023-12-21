@@ -48,6 +48,12 @@ body::after {
 .login_form,.signUp_form {
   width: 100%;
 }
+.signUp_form h5{
+  text-align: center;
+  color: red;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
 .form_heading {
   text-align: center;
   margin-bottom: 25px;
